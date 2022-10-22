@@ -20,9 +20,9 @@ jobs:
       - name: Get version
         run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
       - name: Build
-        run: yarn run build
+        run: pnpm run build
         env:
           TAG_VERSION: ${{env.TAG_VERSION}}
       - if: ${{ github.event_name == 'release' }}
