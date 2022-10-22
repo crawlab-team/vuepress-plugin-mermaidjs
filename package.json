@@ -36,5 +36,8 @@
     "cypress:run": "cypress run",
     "test": "start-server-and-test test:setup-docs-server http-get://127.0.0.1:8080 cypress:run",
     "dev": "yarn vuepress dev docs"
-  }
+  },
+  "files": [
+    "src"
+  ]
 }
