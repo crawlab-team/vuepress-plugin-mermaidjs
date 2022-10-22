@@ -32,7 +32,7 @@ module.exports = function markdownItFence(md, name, opts) {
 
     let mem = pos
     pos = state.skipChars(pos, marker)
-    
+
     let len = pos - mem
 
     if (len < 3) return false
@@ -43,11 +43,13 @@ module.exports = function markdownItFence(md, name, opts) {
     if (params.indexOf(String.fromCharCode(marker)) >= 0) return false
 
     // Since start is found, we can report success here in validation mode
-    if (silent) { return true; }
+    if (silent) {
+      return true;
+    }
 
     let nextLine = startLine
 
-    for (;;) {
+    for (; ;) {
       nextLine++
       if (nextLine >= endLine) break
 
