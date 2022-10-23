@@ -62,7 +62,7 @@ module.exports = {
 The plugin provides mermaidjs diagram rendering for fenced code blocks
 with language name `mermaid`:
 
-``` mermaid
+```mermaid
 sequenceDiagram
 Alice->John: "Hello John, how are you?"
 loop every minute

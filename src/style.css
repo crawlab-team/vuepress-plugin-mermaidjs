@@ -1,22 +1,4 @@
-<template>
-  <div class="spinner" :style="{ background: color }"></div>
-</template>
-
-<script>
-// Loading indicator by https://tobiasahlin.com/spinkit/
-
-export default {
-  props: {
-    color: {
-      required: false,
-      default: 'rgb(66, 185, 131)'
-    }
-  }
-}
-</script>
-
-<style scoped>
-.spinner {
+.cl-mermaid-spinner {
   width: 40px;
   height: 40px;
 
@@ -51,4 +33,3 @@ export default {
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
 }
-</style>

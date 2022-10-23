@@ -1,6 +1,6 @@
 {
   "name": "crawlab-vuepress-plugin-mermaidjs",
-  "version": "2.0.0",
+  "version": "2.0.0-1",
   "description": "A Vuepress plugin providing easy MermaidJS diagramming with customizations for Crawlab",
   "main": "src/index.js",
   "repository": "https://github.com/crawlab-team/vuepress-plugin-mermaidjs",
@@ -14,27 +14,25 @@
     "diagrams",
     "plugin"
   ],
-  "dependencies": {
-    "mermaid": "9.1.7"
-  },
   "devDependencies": {
-    "@vuepress/client": "2.0.0-beta.51",
+    "@vuepress/client": "2.0.0-beta.52",
     "@vuepress/shared": "^2.0.0-beta.35",
     "@vuepress/shared-utils": "^1.9.7",
-    "@vuepress/utils": "^2.0.0-beta.35",
+    "@vuepress/utils": "2.0.0-beta.52",
     "cypress": "^4.12.1",
     "cypress-plugin-snapshots": "^1.4.4",
     "http-server": "^14.1.0",
     "js-base64": "2.6.4",
+    "mermaid": "9.1.7",
     "start-server-and-test": "^1.14.0",
     "vue": "^3.2.37",
-    "vuepress": "2.0.0-beta.51"
+    "vuepress": "2.0.0-beta.52"
   },
   "scripts": {
-    "test:setup-docs-server": "yarn vuepress build docs && http-server docs/.vuepress/dist",
+    "test:setup-docs-server": "vuepress build docs && http-server docs/.vuepress/dist",
     "cypress:run": "cypress run",
     "test": "start-server-and-test test:setup-docs-server http-get://127.0.0.1:8080 cypress:run",
-    "dev": "yarn vuepress dev docs"
+    "dev": "vuepress dev docs"
   },
   "files": [
     "src"
