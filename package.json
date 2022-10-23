@@ -1,9 +1,9 @@
 {
   "name": "crawlab-vuepress-plugin-mermaidjs",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "A Vuepress plugin providing easy MermaidJS diagramming with customizations for Crawlab",
   "type": "module",
-  "main": "dist/index.min.js",
+  "main": "dist/index.cjs",
   "repository": "https://github.com/crawlab-team/vuepress-plugin-mermaidjs",
   "author": "Marvin Zhang",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "test:setup-docs-server": "vuepress build docs && http-server docs/.vuepress/dist",
     "cypress:run": "cypress run",
     "test": "start-server-and-test test:setup-docs-server http-get://127.0.0.1:8080 cypress:run",
-    "build": "tsc -p tsconfig.json && babel src/*.ts --out-file dist/index.min.js --extensions \".ts\" --source-maps inline",
+    "build": "tsc -p tsconfig.json && babel src/*.ts --out-file dist/index.cjs --extensions \".ts\" --source-maps inline",
     "dev": "vuepress dev docs"
   },
   "files": [
