@@ -1,6 +1,5 @@
 import {h} from 'vue';
 import mermaid from 'mermaid';
-import {Loading} from './loading';
 
 const MermaidComponent = {
   name: 'Mermaid',
@@ -97,10 +96,6 @@ const MermaidComponent = {
   unmounted() {
     this.observer.disconnect();
   },
-  components: {
-    // VueMermaidString,
-    Loading,
-  }
 };
 
 export {MermaidComponent};
