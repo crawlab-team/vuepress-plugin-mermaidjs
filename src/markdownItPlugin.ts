@@ -5,6 +5,7 @@ export default (md) => {
     render: (tokens, idx, _options, env, self) => {
       const token = tokens[idx];
       const {content} = token;
+      console.debug(_options);
 
       let encoded = encodeURIComponent(content);
       return `<cl-mermaid graph="${encoded}"></cl-mermaid>`;
