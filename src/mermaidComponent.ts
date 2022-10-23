@@ -1,7 +1,7 @@
-import {h} from 'vue';
+import {defineComponent, h} from 'vue';
 import mermaid from 'mermaid';
 
-const MermaidComponent = {
+const MermaidComponent = defineComponent({
   name: 'Mermaid',
   props: {
     id: {
@@ -96,6 +96,6 @@ const MermaidComponent = {
   unmounted() {
     this.observer.disconnect();
   },
-};
+});
 
 export {MermaidComponent};
