@@ -1,5 +1,7 @@
-import {defineComponent, h} from 'vue';
-import mermaid from 'mermaid';
+import {defineComponent, h, PropType} from 'vue';
+import mermaid, {Config} from 'mermaid';
+
+type Theme = 'dark' | 'default' | 'forest' | 'neutral' | 'null';
 
 const MermaidComponent = defineComponent({
   name: 'Mermaid',
@@ -23,8 +25,8 @@ const MermaidComponent = defineComponent({
       }
     },
     theme: {
-      type: String,
-      default: 'base',
+      type: String as PropType<Theme>,
+      default: 'default',
     },
     themeVariables: {
       type: Object,
@@ -36,7 +38,7 @@ const MermaidComponent = defineComponent({
       }
     },
   },
-  render(props) {
+  render(props: { id: string; graph: string; style: object; theme: Theme; themeVariables: object; }) {
     const style = {
       width: '100%',
       ...props.style
@@ -47,9 +49,9 @@ const MermaidComponent = defineComponent({
       class: 'cl-mermaid',
     }, []);
   },
-  data() {
+  data(): { observer?: MutationObserver; darkMode: boolean } {
     return {
-      observer: undefined as MutationObserver,
+      observer: undefined,
       darkMode: false,
     };
   },
@@ -58,8 +60,8 @@ const MermaidComponent = defineComponent({
       const html = document.querySelector('html');
       if (!html) return;
       if (
-        html.getAttribute('class')?.indexOf('dark') > -1 ||
-        html.getAttribute('data-theme')?.indexOf('dark') > -1
+        (html.getAttribute('class')?.indexOf('dark') || -1) > -1 ||
+        (html.getAttribute('data-theme')?.indexOf('dark') || -1) > -1
       ) {
         this.darkMode = true;
         return;
@@ -75,18 +77,24 @@ const MermaidComponent = defineComponent({
           ...this.themeVariables,
           darkMode: this.darkMode,
         },
-      });
-      mermaid.render(this.id, decodeURIComponent(this.graph), (svgCode) => {
+      } as Config);
+      mermaid.render(this.id, decodeURIComponent(this.graph), (svgCode: any) => {
         element.innerHTML = svgCode;
       });
     },
+  },
+  computed: {
+    html() {
+      return document.querySelector('html');
+    }
   },
   mounted() {
     this.observer = new MutationObserver(() => {
       this.updateDarkMode();
       this.renderGraph();
     });
-    this.observer.observe(document.querySelector('html'), {attributes: true});
+    if (!this.html) return;
+    this.observer?.observe(this.html, {attributes: true});
 
     setTimeout(() => {
       this.updateDarkMode();
@@ -94,7 +102,7 @@ const MermaidComponent = defineComponent({
     }, 0);
   },
   unmounted() {
-    this.observer.disconnect();
+    this.observer?.disconnect();
   },
 });
 

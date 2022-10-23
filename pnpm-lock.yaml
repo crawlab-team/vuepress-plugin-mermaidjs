@@ -4,6 +4,7 @@ specifiers:
   '@babel/cli': ^7.19.3
   '@babel/core': ^7.19.6
   '@babel/preset-typescript': ^7.18.6
+  '@types/mermaid': ^9.1.0
   '@vuepress/client': 2.0.0-beta.52
   '@vuepress/shared': ^2.0.0-beta.35
   '@vuepress/shared-utils': ^1.9.7
@@ -22,6 +23,7 @@ devDependencies:
   '@babel/cli': 7.19.3_@babel+core@7.19.6
   '@babel/core': 7.19.6
   '@babel/preset-typescript': 7.18.6_@babel+core@7.19.6
+  '@types/mermaid': 9.1.0
   '@vuepress/client': 2.0.0-beta.52
   '@vuepress/shared': registry.npmmirror.com/@vuepress/shared/2.0.0-beta.52
   '@vuepress/shared-utils': registry.npmmirror.com/@vuepress/shared-utils/1.9.7
@@ -535,6 +537,10 @@ packages:
 
   /@types/mdurl/1.0.2:
     resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
+    dev: true
+
+  /@types/mermaid/9.1.0:
+    resolution: {integrity: sha512-rc8QqhveKAY7PouzY/p8ljS+eBSNCv7o79L97RSub/Ic2SQ34ph1Ng3s8wFLWVjvaEt6RLOWtSCsgYWd95NY8A==}
     dev: true
 
   /@types/ms/0.7.31:

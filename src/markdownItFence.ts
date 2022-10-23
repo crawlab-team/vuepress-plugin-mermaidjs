@@ -1,10 +1,10 @@
-export default (md, name, opts) => {
+export default (md: any, name: any, opts: any) => {
 
-  function defaultValidate(params) {
+  function defaultValidate(params: any) {
     return params.trim().split(' ', 2)[0] === name;
   }
 
-  const defaultRender = (tokens, idx, _options, env, self) => {
+  const defaultRender = (tokens: any, idx: any, _options: any, env: any, self: any) => {
     if (tokens[idx].nesting === 1) {
       tokens[idx].attrPush(['class', name]);
     }
@@ -17,7 +17,7 @@ export default (md, name, opts) => {
     ...opts,
   };
 
-  const fence = (state, startLine, endLine, silent) => {
+  const fence = (state: any, startLine: any, endLine: any, silent: any) => {
     const optionMarker = options.marker || '`';
     let pos = state.bMarks[startLine] + state.tShift[startLine];
     let max = state.eMarks[startLine];

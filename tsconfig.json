@@ -12,14 +12,13 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
+    "sourceRoot": "src",
+    "outDir": "dist",
     "lib": [
       "esnext",
       "dom",

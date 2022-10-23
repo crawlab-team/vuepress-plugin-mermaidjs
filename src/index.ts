@@ -5,13 +5,13 @@ import markdownItPlugin from './markdownItPlugin';
 const __dirname = getDirname(import.meta.url);
 const clientConfigFile = path.resolve(__dirname, './clientConfig.ts');
 
-export default (options, ctx) => {
+export default (options: any, ctx: any) => {
   return {
     name: 'crawlab-vuepress-plugin-mermaidjs',
     define: {
       // MERMAID_OPTIONS: options
     },
-    extendsMarkdown(md, app) {
+    extendsMarkdown(md: any, app: any) {
       md.use(markdownItPlugin);
     },
     clientConfigFile,
